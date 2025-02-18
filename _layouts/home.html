@@ -64,7 +64,7 @@ layout: default
                           canvas.width = crop.width;
                           canvas.height = crop.height;
                           const ctx = canvas.getContext('2d');
-                          ctx.drawImage(image, crop.x, crop.y, crop.width, crop.height, 0, 0, crop.width, crop.height);
+                          ctx.drawImage(src, crop.x, crop.y, crop.width, crop.height, 0, 0, crop.width, crop.height);
                       
                           // Append the cropped image to the DOM
                           // div.appendChild(canvas);
