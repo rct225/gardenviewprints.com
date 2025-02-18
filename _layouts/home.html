@@ -51,15 +51,23 @@ layout: default
                         }
                         function showCroppedImage(src, crop, idc, options) {
                           const div = document.createElement('div');
-                          const style = div.style;
-                          style.backgroundImage = `url('${src}')`;
-                          const scale = options.width / crop.width;
-                          // style.backgroundPositionX = crop.x * scale + 'px';
-                          // style.backgroundPositionY = -crop.y * scale + 'px';
-                          style.backgroundSize = 'cover';
-                          style.width = options.width + 'px';
-                          style.height = options.height + 'px';
-                          document.getElementById(idc).appendChild(div);
+                          // const style = div.style;
+                          // style.backgroundImage = `url('${src}')`;
+                          // const scale = options.width / crop.width;
+                          // // style.backgroundPositionX = crop.x * scale + 'px';
+                          // // style.backgroundPositionY = -crop.y * scale + 'px';
+                          // style.backgroundSize = 'cover';
+                          // style.width = options.width + 'px';
+                          // style.height = options.height + 'px';
+                          // document.getElementById(idc).appendChild(div);
+                          const canvas = document.createElement('canvas');
+                          canvas.width = crop.width;
+                          canvas.height = crop.height;
+                          const ctx = canvas.getContext('2d');
+                          ctx.drawImage(image, crop.x, crop.y, crop.width, crop.height, 0, 0, crop.width, crop.height);
+                      
+                          // Append the cropped image to the DOM
+                          div.appendChild(canvas);
                         }
                         main();
                       </script>
