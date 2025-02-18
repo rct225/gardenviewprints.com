@@ -49,10 +49,10 @@ layout: default
                           const crop = result.topCrop;
                           console.log('crops', crop);
                           const canvas = document.createElement('canvas');
-                          canvas.width = crop.width;
-                          canvas.height = crop.height;
+                          canvas.width = options.width;
+                          canvas.height = options.height;
                           const ctx = canvas.getContext('2d');
-                          ctx.drawImage(image, crop.x, crop.y, crop.width, crop.height, 0, 0, crop.width, crop.height);
+                          ctx.drawImage(image, crop.x, crop.y, crop.width, crop.height, 0, 0, canvas.width, canvas.height);
                       
                           // Append the cropped image to the DOM
                           // document.body.appendChild(canvas);
